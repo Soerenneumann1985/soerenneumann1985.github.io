@@ -1,0 +1,9 @@
+.venv/
+.claude/
+.idea/
+__pycache__/
+.ipynb_checkpoints/
+test.ipynb
+
+# 4K-Originalvideo (136 MB, zu gross fuer GitHub; Web-Version ist assets/drohnenvideo.mp4)
+assets/dji_export_*.mp4

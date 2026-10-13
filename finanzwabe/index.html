@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzwabe – Wabe für Wabe schuldenfrei</title>
+    <meta name="description" content="Finanzwabe: die Finanz-App für alle, die Ausgaben im Griff haben und Kredite abbauen wollen. Nettovermögen, Budgets und Schuldenfrei-Datum – ohne Bank-Login, ohne Tracking.">
+    <meta name="theme-color" content="#1f4fd1">
+    <meta property="og:title" content="Finanzwabe – Wabe für Wabe schuldenfrei">
+    <meta property="og:description" content="Ausgaben, Vermögen und Kredite auf einen Blick. Jetzt kostenlos in der Beta testen.">
+    <meta property="og:image" content="assets/app-desktop.jpg">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-back" aria-label="Zur Homepage von Sören Neumann">← Sören Neumann</a>
+        <a href="#top" class="nav-brand"><img src="assets/logo.svg" alt="" width="30" height="30"> Finanzwabe</a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#fragen">Funktionen</a></li>
+            <li><a href="#start">So geht's</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn-small" href="#beta" data-app-link="/registrieren">Kostenlos testen</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<header class="hero" id="top">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <span class="badge">Jetzt in der Beta – kostenlos</span>
+            <h1>Wabe für Wabe<br><span class="accent">schuldenfrei.</span></h1>
+            <p class="lead">Finanzwabe zeigt dir auf einen Blick, wofür dein Geld draufgeht, wie viel du insgesamt besitzt – und an welchem Tag du deinen letzten Kredit abbezahlt hast.</p>
+            <div class="hero-cta">
+                <a class="btn" href="#beta" data-app-link="/registrieren">Kostenlos testen</a>
+                <a class="btn btn-ghost" href="#fragen">Funktionen ansehen</a>
+            </div>
+            <ul class="hero-points">
+                <li>Keine Bank-Zugangsdaten nötig</li>
+                <li>Kein Tracking, keine Werbung</li>
+                <li>Browser, Android &amp; iPhone</li>
+            </ul>
+        </div>
+        <div class="hero-phones" aria-hidden="true">
+            <div class="phone phone-back"><img src="assets/app-kredite.jpg" alt="" width="390" height="844"></div>
+            <div class="phone phone-front"><img src="assets/app-uebersicht.jpg" alt="" width="390" height="844"></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="trust">
+        <div class="container trust-grid">
+            <div><strong>0</strong><span>Bank-Logins</span></div>
+            <div><strong>100&nbsp;%</strong><span>deine Daten – Export &amp; Löschen per Klick</span></div>
+            <div><strong>Excel</strong><span>alte Tabelle mit Vorschau übernehmen</span></div>
+            <div><strong>0</strong><span>Tracker und Werbung</span></div>
+        </div>
+    </section>
+
+    <section class="section" id="fragen">
+        <div class="container">
+            <h2 class="section-title">Drei Fragen. Eine App.</h2>
+            <p class="section-sub">Haushaltsbuch-Apps zeigen dir, was du ausgibst. Finanzwabe zeigt dir auch, wie du insgesamt dastehst – und wann du schuldenfrei bist.</p>
+
+            <article class="feature-row">
+                <div class="phone"><img src="assets/app-monat.jpg" alt="Monatsübersicht mit Buchungen und Ausgaben nach Kategorie" width="390" height="844" loading="lazy"></div>
+                <div class="feature-text">
+                    <span class="hex-number">1</span>
+                    <h3>Wofür gebe ich mein Geld aus?</h3>
+                    <p>Einnahmen und Ausgaben pro Monat, sauber nach Kategorien. Fixkosten zählen genau einmal – keine doppelten Summen wie in selbst gebauten Tabellen. Budgets warnen dich ab 80&nbsp;%.</p>
+                    <ul class="checks">
+                        <li>Monats- und Jahresübersicht mit Vorjahresvergleich</li>
+                        <li>Budgets je Kategorie mit Warnung</li>
+                        <li>Daueraufträge tragen sich selbst ein</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="feature-row reverse">
+                <div class="phone"><img src="assets/app-vermoegen.jpg" alt="Vermögensübersicht mit Verlauf des Nettovermögens" width="390" height="844" loading="lazy"></div>
+                <div class="feature-text">
+                    <span class="hex-number">2</span>
+                    <h3>Wie stehe ich insgesamt da?</h3>
+                    <p>Girokonto, Tagesgeld, Depot und Kreditkarten minus alle Schulden ergibt dein Nettovermögen – mit Verlauf Monat für Monat. So siehst du, ob es wirklich aufwärts geht.</p>
+                    <ul class="checks">
+                        <li>Nettovermögen mit Verlaufsdiagramm</li>
+                        <li>Freier Kreditkartenrahmen auf einen Blick</li>
+                        <li>Umbuchungen aufs Sparkonto zählen nicht als Ausgabe</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="feature-row">
+                <div class="phone"><img src="assets/app-kredite.jpg" alt="Kreditübersicht mit Restschuld und Datum der Schuldenfreiheit" width="390" height="844" loading="lazy"></div>
+                <div class="feature-text">
+                    <span class="hex-number">3</span>
+                    <h3>Wann bin ich schuldenfrei?</h3>
+                    <p>Trag deine Kredite ein – Finanzwabe rechnet Restschuld, Tilgung und Zinsen aus und nennt dir den Monat, in dem du schuldenfrei bist. Das motiviert jeden Monat aufs Neue.</p>
+                    <ul class="checks">
+                        <li>Restschuld und Fortschritt pro Kredit</li>
+                        <li>Prognose „schuldenfrei am …“ mit Zinsen</li>
+                        <li>Warnung, wenn eine Rate die Zinsen nicht deckt</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Alles, was ein gutes Haushaltsbuch braucht</h2>
+            <div class="features-grid">
+                <div class="feature-card"><span class="hex-icon">📱</span><h3>Wie eine echte App</h3><p>Auf dem Startbildschirm installieren – startet im Vollbild auf Android und iPhone.</p></div>
+                <div class="feature-card"><span class="hex-icon">📊</span><h3>Klare Diagramme</h3><p>Monatsvergleich, Kategorien und Vermögensverlauf ohne Zahlenwüste.</p></div>
+                <div class="feature-card"><span class="hex-icon">📥</span><h3>Excel-Import</h3><p>Deine alte Tabelle übernehmen – samt Kontoständen, Krediten und Verlauf.</p></div>
+                <div class="feature-card"><span class="hex-icon">🔒</span><h3>Datenschutz zuerst</h3><p>Keine Bank-Logins, keine Tracker. CSV-Export und Konto löschen jederzeit.</p></div>
+                <div class="feature-card"><span class="hex-icon">🔍</span><h3>Suche</h3><p>Jede Buchung nach Text, Kategorie oder Betrag in Sekunden finden.</p></div>
+                <div class="feature-card"><span class="hex-icon">🌙</span><h3>Hell &amp; dunkel</h3><p>Passt sich automatisch an dein Gerät an – auch abends angenehm.</p></div>
+            </div>
+            <div class="desktop-shot">
+                <img src="assets/app-desktop.jpg" alt="Finanzwabe am PC: Übersicht mit Nettovermögen, Monatszahlen und Budgets" width="1600" height="1025" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="start">
+        <div class="container">
+            <h2 class="section-title">In drei Schritten startklar</h2>
+            <ol class="steps">
+                <li><span class="hex-number">1</span><h3>Registrieren</h3><p>E-Mail und Passwort – mehr brauchst du nicht. In der Beta mit Einladungscode.</p></li>
+                <li><span class="hex-number">2</span><h3>Stände eintragen</h3><p>Kontostände und Kredite eintragen oder deine Excel-Tabelle importieren.</p></li>
+                <li><span class="hex-number">3</span><h3>Überblick genießen</h3><p>Ausgaben erfassen dauert Sekunden – der Rest rechnet sich von selbst.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="preise">
+        <div class="container">
+            <h2 class="section-title">Faire Preise</h2>
+            <p class="section-sub">Während der Beta ist alles kostenlos. Danach gilt ein Tarif nur, wenn du ihn selbst buchst – keine Abofalle.</p>
+            <div class="pricing">
+                <div class="price-card highlight">
+                    <span class="price-label">Jetzt</span>
+                    <h3>Beta</h3>
+                    <p class="price">0&nbsp;€</p>
+                    <p class="price-note">während der Testphase</p>
+                    <ul class="checks">
+                        <li>Alle Funktionen</li>
+                        <li>Direkter Draht zum Entwickler</li>
+                        <li>Frühbucher-Preis gesichert</li>
+                    </ul>
+                    <a class="btn" href="#beta" data-app-link="/registrieren">Beta-Tester werden</a>
+                </div>
+                <div class="price-card">
+                    <span class="price-label">Geplant</span>
+                    <h3>Frühbucher</h3>
+                    <p class="price">1,99&nbsp;€<small>/Monat</small></p>
+                    <p class="price-note">dauerhaft – für Beta-Tester und die ersten 100 Kunden</p>
+                    <ul class="checks">
+                        <li>Alle Funktionen</li>
+                        <li>Preis bleibt für immer</li>
+                        <li>Monatlich kündbar</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <span class="price-label">Geplant</span>
+                    <h3>Plus</h3>
+                    <p class="price">2,99&nbsp;€<small>/Monat</small></p>
+                    <p class="price-note">oder 24,99&nbsp;€ im Jahr – 30 Tage kostenlos testen</p>
+                    <ul class="checks">
+                        <li>Alle Funktionen</li>
+                        <li>Jahrestarif spart 30&nbsp;%</li>
+                        <li>Monatlich kündbar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="story">
+        <div class="container story">
+            <img src="assets/logo.svg" alt="" width="96" height="96">
+            <div>
+                <h2>Aus einer Excel-Tabelle entstanden</h2>
+                <p>Seit Jahren habe ich meine Finanzen in einer selbst gebauten Excel-Tabelle geführt – mit Monatsblöcken, Kontoständen und Kredit-Restschulden. Irgendwann wurde sie zu groß, zu fehleranfällig und am Handy unbenutzbar. Also habe ich Finanzwabe gebaut: die App, die ich mir selbst gewünscht hätte.</p>
+                <p class="signature">— Sören Neumann, Entwickler von Finanzwabe · <a href="../index.html">Über mich</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="faq">
+        <div class="container faq">
+            <h2 class="section-title">Häufige Fragen</h2>
+            <details><summary>Brauche ich meine Bank-Zugangsdaten?</summary><p>Nein. Finanzwabe verbindet sich mit keiner Bank. Du trägst Buchungen selbst ein oder importierst sie aus Excel. Deine Bank-Zugangsdaten bleiben da, wo sie hingehören: bei dir.</p></details>
+            <details><summary>Gibt es Finanzwabe für Android und iPhone?</summary><p>Ja. Finanzwabe läuft im Browser und lässt sich auf Android (Chrome: „App installieren“) und iPhone (Safari: „Zum Home-Bildschirm“) wie eine normale App installieren.</p></details>
+            <details><summary>Was passiert mit meinen Daten?</summary><p>Sie werden nur für die App verwendet, nicht verkauft und nicht für Werbung genutzt. Du kannst jederzeit alles als CSV exportieren oder dein Konto mit allen Daten sofort löschen.</p></details>
+            <details><summary>Kann ich meine Excel-Tabelle übernehmen?</summary><p>Ja. Tabellen mit Datum, Betrag und Beschreibung pro Zeile werden erkannt, die Kategorien automatisch zugeordnet. Vor dem Import siehst du eine Vorschau.</p></details>
+            <details><summary>Was kostet Finanzwabe nach der Beta?</summary><p>Geplant sind 2,99&nbsp;€ im Monat oder 24,99&nbsp;€ im Jahr. Beta-Tester bekommen dauerhaft den Frühbucher-Preis von 1,99&nbsp;€. Ein Tarif gilt nur, wenn du ihn ausdrücklich buchst.</p></details>
+            <details><summary>Ist Finanzwabe eine Finanzberatung?</summary><p>Nein. Finanzwabe ist ein Werkzeug für deinen Überblick. Alle Berechnungen beruhen auf deinen Eingaben; maßgeblich sind die Unterlagen deiner Bank.</p></details>
+        </div>
+    </section>
+
+    <section class="cta-band" id="beta">
+        <div class="container">
+            <h2>Werde Beta-Tester</h2>
+            <p>Finanzwabe startet mit einer kleinen Testgruppe. Hol dir deinen Einladungscode und sichere dir den Frühbucher-Preis.</p>
+            <div class="hero-cta">
+                <a class="btn btn-light" href="mailto:soerenneumann85@gmx.de?subject=Einladungscode%20f%C3%BCr%20Finanzwabe&amp;body=Hallo%20S%C3%B6ren%2C%0A%0Aich%20m%C3%B6chte%20Finanzwabe%20als%20Beta-Tester%20ausprobieren.">Einladungscode anfordern</a>
+                <a class="btn btn-ghost-light" href="#beta" data-app-link="/registrieren" data-hide-without-app>Zur App</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand"><img src="assets/logo.svg" alt="" width="28" height="28"> Finanzwabe <span>Wabe für Wabe schuldenfrei.</span></div>
+        <div class="footer-links">
+            <a href="../index.html">Homepage</a>
+            <a href="mailto:soerenneumann85@gmx.de?subject=Finanzwabe">Kontakt</a>
+            <a href="../impressum.html">Impressum</a>
+            <a href="../datenschutz.html">Datenschutz</a>
+        </div>
+        <p>&copy; 2026 Sören Neumann</p>
+    </div>
+</footer>
+
+<script src="script.js?v=2" defer></script>
+</body>
+</html>

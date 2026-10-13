@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Sören Neumann | Cloud Engineer (angehend)</title>
+    <meta name="description" content="Persönliche Homepage von Sören Neumann: angehender Cloud Engineer bei MSIT, zuvor Feinwerkmechaniker & Techniker Maschinenbau. Projekte, Zertifikate und Kontakt." data-i18n-content="meta.description">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial, sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3ESN%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="stylesheet1.css"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#home" class="nav-logo">Sören Neumann</a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" data-i18n="nav.home">Start</a></li>
+            <li><a href="#finanzwabe">Finanzwabe</a></li>
+            <li><a href="#about" data-i18n="nav.about">Über mich</a></li>
+            <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="#certifications" data-i18n="nav.certifications">Zertifikate</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projekte</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="#personal" data-i18n="nav.personal">Persönliches</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a class="nav-icon-link" href="https://github.com/Soerenneumann1985" target="_blank" rel="noopener">GitHub</a>
+            <a class="nav-icon-link" href="https://www.linkedin.com/in/s%C3%B6ren-neumann-cloud77" target="_blank" rel="noopener">LinkedIn</a>
+            <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="hero-main" id="home">
+        <span class="eyebrow" data-i18n="hero.eyebrow">Angehender Cloud Engineer @ MSIT</span>
+        <h1>Sören Neumann</h1>
+        <h2 data-i18n="hero.subtitle">Vom Feinwerkmechaniker zum Cloud Engineer</h2>
+        <p class="hero-intro" data-i18n="hero.intro">
+            Über 15 Jahre Erfahrung aus Präzisionshandwerk und Luftfahrttechnik (Airbus A320/A400M) treffen auf
+            moderne Softwareentwicklung. Aktuell im Quereinsteiger-Studium zum Software-Ingenieur mit Schwerpunkt
+            Cloud Engineering — und in Vorbereitung auf die Zertifizierung AWS Certified Cloud Practitioner.
+        </p>
+        <div class="hero-cta">
+            <a class="button" href="#projects" data-i18n="hero.ctaProjects">Projekte ansehen</a>
+            <a class="button secondary" href="assets/cv/Lebenslauf-Soeren-Neumann.pdf" target="_blank" data-i18n="hero.ctaCv">Lebenslauf (PDF)</a>
+            <a class="button secondary" href="#contact" data-i18n="hero.ctaContact">Kontakt aufnehmen</a>
+        </div>
+    </header>
+
+    <section class="card fw-promo" id="finanzwabe">
+        <div class="fw-promo-text">
+            <span class="fw-badge" data-i18n="fw.badge">Neu · Beta kostenlos</span>
+            <h3 class="fw-title"><img src="finanzwabe/assets/logo.svg" alt="" width="44" height="44"> Finanzwabe</h3>
+            <p class="fw-slogan" data-i18n="fw.slogan">Wabe für Wabe schuldenfrei.</p>
+            <p data-i18n="fw.text">Meine eigene Finanz-App: Sie zeigt, wofür das Geld draufgeht, wie viel man insgesamt besitzt – und an welchem Tag der letzte Kredit abbezahlt ist. Ohne Bank-Login, ohne Tracking, im Browser und als App auf dem Handy.</p>
+            <div class="fw-actions">
+                <a class="button" href="finanzwabe/index.html" data-i18n="fw.cta">Finanzwabe entdecken →</a>
+                <a class="button secondary" href="finanzwabe/index.html#beta" data-i18n="fw.ctaBeta">Beta-Tester werden</a>
+            </div>
+        </div>
+        <a class="fw-phone" href="finanzwabe/index.html" aria-label="Zur Finanzwabe-Seite">
+            <img src="finanzwabe/assets/app-kredite.jpg" alt="Finanzwabe auf dem Smartphone: Kredite mit Datum der Schuldenfreiheit" width="390" height="844" loading="lazy">
+        </a>
+    </section>
+
+    <section class="card" id="about">
+        <div class="section-heading"><h3 data-i18n="about.heading">Über mich</h3></div>
+        <p data-i18n="about.p1">
+            Mein Name ist Sören Neumann, geboren 1985, aufgewachsen und wohnhaft in Nordenham, Niedersachsen.
+        </p>
+        <p data-i18n="about.p2">
+            Mein beruflicher Weg begann in der Feinwerkmechanik: Ausbildung zum Feinwerkmechaniker, danach
+            Qualifizierung zum Strukturmechaniker Luftfahrt mit Einsatz bei Airbus in Bremen (A320-Montage,
+            A400M), gefolgt von einer Weiterbildung zum Staatlich geprüften Techniker der Fachrichtung
+            Maschinentechnik. In den letzten Jahren habe ich als CNC-Maschinenbediener im 5-Achs-Fräsen
+            gearbeitet.
+        </p>
+        <p data-i18n="about.p3" data-i18n-html="true">
+            Seit Mai 2026 gehe ich den nächsten Schritt: ein Quereinsteiger-Studium zum Software-Ingenieur mit
+            Schwerpunkt Python-Entwicklung und dem klaren Ziel Cloud Engineering. Parallel bereite ich mich auf
+            die Zertifizierung <strong>AWS Certified Cloud Practitioner</strong> vor.
+        </p>
+        <p data-i18n="about.p4">
+            Was mich antreibt: die gleiche Präzision und Sorgfalt, die ich jahrelang an CNC-Maschinen und in der
+            Luftfahrtfertigung gelernt habe, jetzt in sauberen, gut getesteten Code und stabile Cloud-Infrastruktur
+            zu übersetzen.
+        </p>
+    </section>
+
+    <section class="card" id="skills">
+        <div class="section-heading"><h3 data-i18n="skills.heading">🚀 Tech Stack</h3></div>
+        <p class="center" data-i18n="skills.stack">
+            Python • Git &amp; GitHub • pytest • HTML • CSS • JavaScript • AWS (in Vorbereitung) • Linux
+        </p>
+
+        <div class="skills-columns">
+            <div>
+                <h3 data-i18n="skills.cloudHeading">Cloud &amp; Software</h3>
+                <ul class="skills-list">
+                    <li><span data-i18n="skills.cloud1">Cloud Engineering (aktuell in Ausbildung, Schwerpunkt AWS)</span></li>
+                    <li><span data-i18n="skills.cloud2">Python-Entwicklung (OOP, Exception Handling, Dateisystem-Operationen)</span></li>
+                    <li><span data-i18n="skills.cloud3">Testing mit pytest</span></li>
+                    <li><span data-i18n="skills.cloud4">Versionierung mit Git &amp; GitHub, kollaborative Workflows</span></li>
+                    <li><span data-i18n="skills.cloud5">Datenanalyse &amp; Visualisierung (pandas, seaborn, matplotlib)</span></li>
+                </ul>
+            </div>
+            <div>
+                <h3 data-i18n="skills.craftHeading">Handwerkliche Wurzeln</h3>
+                <ul class="skills-list">
+                    <li><a href="https://de.wikipedia.org/wiki/Feinwerkmechaniker" target="_blank" rel="noopener" data-i18n="skills.craft1">Feinwerkmechaniker (Facharbeiterbrief)</a></li>
+                    <li><a href="https://de.wikipedia.org/wiki/Fluggerätmechaniker" target="_blank" rel="noopener" data-i18n="skills.craft2">Strukturmechaniker Luftfahrt — Airbus A320/A400M</a></li>
+                    <li><a href="https://de.wikipedia.org/wiki/Maschinenbautechniker" target="_blank" rel="noopener" data-i18n="skills.craft3">Staatlich geprüfter Techniker, Maschinentechnik</a></li>
+                    <li><span data-i18n="skills.craft4">CNC-Fräsen/-Drehen, CAD/CAM (Autodesk Inventor)</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="card" id="certifications">
+        <div class="section-heading"><h3 data-i18n="certs.heading">Zertifikate</h3></div>
+        <p class="section-sub" data-i18n="certs.sub">Abgeschlossen und in Vorbereitung.</p>
+        <div class="projects-grid">
+            <article class="project-card cert-card">
+                <div class="cert-status done" data-i18n="certs.statusDone">Abgeschlossen</div>
+                <h4 data-i18n="certs.msitTitle">Python Innovation Hackathon</h4>
+                <p data-i18n="certs.msitDesc">Masterschool Institute of Technology — Python-Entwicklung mit API- &amp; KI-Integration (27. Juli 2026).</p>
+                <a href="assets/certificates/msit-python-hackathon.png" target="_blank" data-i18n="certs.viewCert">Zertifikat ansehen →</a>
+            </article>
+            <article class="project-card cert-card">
+                <div class="cert-status done" data-i18n="certs.statusDone">Abgeschlossen</div>
+                <h4 data-i18n="certs.techTitle">Staatlich geprüfter Techniker</h4>
+                <p data-i18n="certs.techDesc">Fachrichtung Maschinentechnik — Technikerschule Bremen.</p>
+            </article>
+            <article class="project-card cert-card in-progress">
+                <div class="cert-status progress" data-i18n="certs.statusProgress">In Vorbereitung</div>
+                <h4>AWS Certified Cloud Practitioner</h4>
+                <p data-i18n="certs.awsDesc">Aktuell in Vorbereitung — Einstiegszertifizierung von Amazon Web Services.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="card" id="projects">
+        <div class="section-heading"><h3 data-i18n="projects.heading">Projekte</h3></div>
+        <p class="section-sub" data-i18n="projects.sub">Eine Auswahl an Arbeiten aus Studium und Selbstlernen.</p>
+        <div class="projects-grid">
+            <article class="project-card featured">
+                <div class="cert-status progress" data-i18n="projects.fwStatus">Beta</div>
+                <h4>Finanzwabe</h4>
+                <p data-i18n="projects.fwDesc">Vollständige Finanz-App als Progressive Web App: Buchungen, Budgets, Nettovermögen und Kredit-Prognose „schuldenfrei am …“. Mit Login, Excel-Import, eigenen Diagrammen und über 150 automatischen Tests.</p>
+                <div class="project-tags"><span>Python</span><span>Flask</span><span>SQLAlchemy</span><span>PWA</span><span>pytest</span></div>
+                <a href="finanzwabe/index.html" data-i18n="projects.fwCta">Zur Produktseite →</a>
+            </article>
+            <article class="project-card">
+                <h4 data-i18n="projects.p1Title">Animals Web Generator</h4>
+                <p data-i18n="projects.p1Desc">Python-Skript, das Tierdaten über eine externe API abruft und daraus automatisch eine statische HTML-Seite generiert. Nutzt requests und python-dotenv für die API-Key-Verwaltung.</p>
+                <div class="project-tags"><span>Python</span><span>API</span><span>HTML</span></div>
+                <a href="https://github.com/Soerenneumann1985/My-Zootopia" target="_blank" rel="noopener" data-i18n="projects.viewCode">Code ansehen →</a>
+            </article>
+            <article class="project-card">
+                <h4 data-i18n="projects.p2Title">Penguin Analysis</h4>
+                <p data-i18n="projects.p2Desc">Datenanalyse und Visualisierung des Palmer-Penguins-Datensets: Kennzahlen pro Pinguinart, Streudiagramme und Balkendiagramme mit pandas, seaborn und matplotlib. Inklusive Tests mit pytest.</p>
+                <div class="project-tags"><span>Python</span><span>pandas</span><span>seaborn</span></div>
+                <a href="https://github.com/Soerenneumann1985/penguin-analysis" target="_blank" rel="noopener" data-i18n="projects.viewCode">Code ansehen →</a>
+            </article>
+            <article class="project-card">
+                <h4 data-i18n="projects.p3Title">Diese Homepage auf AWS</h4>
+                <p data-i18n="projects.p3Desc">Diese Website selbst ist mein erstes Cloud-Projekt: statisches Hosting über Amazon S3, aufgebaut mit HTML, CSS und JavaScript.</p>
+                <div class="project-tags"><span>AWS S3</span><span>HTML/CSS/JS</span></div>
+                <span class="project-status" data-i18n="projects.inProgress">In Arbeit</span>
+            </article>
+            <article class="project-card placeholder">
+                <h4>Sky SQL</h4>
+                <p data-i18n="projects.p4Desc">Datenbank-Projekt — Code ist fertig, Upload auf GitHub folgt in Kürze.</p>
+                <div class="project-tags"><span>SQL</span><span>Python</span></div>
+                <span class="project-status" data-i18n="projects.comingSoon">Demnächst auf GitHub</span>
+            </article>
+        </div>
+    </section>
+
+    <section class="card" id="contact">
+        <div class="section-heading"><h3 data-i18n="contact.heading">Schreib mir eine E-Mail</h3></div>
+
+        <form action="mailto:soerenneumann85@gmx.de" method="get">
+
+            <label for="name" data-i18n="contact.name">Name</label>
+            <input type="text" id="name" name="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Dein Name">
+
+            <label for="email" data-i18n="contact.email">E-Mail</label>
+            <input type="email" id="email" name="email" data-i18n-placeholder="contact.emailPlaceholder" placeholder="deine@email.de">
+
+            <input type="submit" data-i18n-value="contact.submit" value="Absenden">
+
+        </form>
+        <p class="contact-alt center" data-i18n="contact.altHtml" data-i18n-html="true">oder direkt an <a href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a></p>
+    </section>
+
+    <div class="section-divider">
+        <span data-i18n="personal.divider">Persönliches</span>
+    </div>
+
+    <section class="video-hero" id="personal">
+        <video class="video-hero-media" autoplay muted loop playsinline poster="assets/drohnenvideo-poster.jpg">
+            <source src="assets/drohnenvideo.mp4" type="video/mp4">
+        </video>
+        <div class="video-hero-overlay"></div>
+        <div class="video-hero-text">
+            <h3 data-i18n="drone.heading">Aus der Vogelperspektive</h3>
+            <p data-i18n="drone.sub">Aufnahmen meiner DJI Neo Drohne</p>
+            <a class="button" href="drohne/index.html" data-i18n="drone.cta">Zur Drohnen-Seite →</a>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="profile-container">
+            <img src="assets/Selfie.jpg" alt="Selfie von Sören Neumann" class="profile-image">
+            <div>
+                <h3 style="text-align: left; margin-bottom: 10px;" data-i18n="insta.heading">Besuche mich!</h3>
+                <p style="text-align: left; margin-bottom: 20px;" data-i18n="insta.sub">Folge mir auf Instagram und bleibe immer auf dem Laufenden!</p>
+                <a class="button" href="https://www.instagram.com/soerenneumann77/" target="_blank" data-i18n="insta.cta">
+                    Mein Instagram Account
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="card" id="gallery">
+        <div class="section-heading"><h3 data-i18n="gallery.heading">Momente</h3></div>
+        <div class="gallery">
+            <div class="gallery-item"><img src="assets/gallery/cafe.jpg" alt="Unterwegs im Café" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/gallery/lego.jpg" alt="Lego Formel 1" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/gallery/hamburg-turm.jpg" alt="Fernsehturm Hamburg" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/gallery/hamburg-messe.jpg" alt="Hamburg Messe" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/gallery/gym.jpg" alt="Im Fitnessstudio" loading="lazy"></div>
+            <div class="gallery-item"><img src="assets/gallery/strand.jpg" alt="Am Strand" loading="lazy"></div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-links">
+        <a href="#home" data-i18n="nav.home">Start</a>
+        <a href="finanzwabe/index.html">Finanzwabe</a>
+        <a href="drohne/index.html" data-i18n="footer.drone">Drohne</a>
+        <a href="https://github.com/Soerenneumann1985" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/s%C3%B6ren-neumann-cloud77" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/soerenneumann77/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:soerenneumann85@gmx.de">E-Mail</a>
+        <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
+    </div>
+    <p>&copy; 2026 Sören Neumann</p>
+</footer>
+
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img src="" alt="" id="lightbox-img">
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
