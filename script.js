@@ -13,9 +13,11 @@ const translations = {
 
     'hero.eyebrow': { de: 'Angehender Cloud Engineer @ MSIT', en: 'Aspiring Cloud Engineer @ MSIT' },
     'hero.subtitle': { de: 'Vom Feinwerkmechaniker zum Cloud Engineer', en: 'From Precision Mechanic to Cloud Engineer' },
+    'hero.line1': { de: 'Präzision aus der Werkstatt.', en: 'Precision from the workshop.' },
+    'hero.line2': { de: 'Gebaut für die Cloud.', en: 'Built for the cloud.' },
     'hero.intro': {
-        de: 'Über 15 Jahre Erfahrung aus Präzisionshandwerk und Luftfahrttechnik (Airbus A320/A400M) treffen auf moderne Softwareentwicklung. Aktuell im Quereinsteiger-Studium zum Software-Ingenieur mit Schwerpunkt Cloud Engineering — und in Vorbereitung auf die Zertifizierung AWS Certified Cloud Practitioner.',
-        en: '15+ years of experience in precision engineering and aerospace manufacturing (Airbus A320/A400M) meet modern software development. Currently retraining as a software engineer with a focus on cloud engineering — and preparing for the AWS Certified Cloud Practitioner certification.'
+        de: 'Über 15 Jahre Erfahrung aus Präzisionshandwerk und Luftfahrttechnik treffen auf moderne Softwareentwicklung. Aktuell im Quereinsteiger-Studium zum Software-Ingenieur mit Schwerpunkt Cloud Engineering — und in Vorbereitung auf die Zertifizierung AWS Certified Cloud Practitioner.',
+        en: '15+ years of experience in precision engineering and aerospace manufacturing meet modern software development. Currently retraining as a software engineer with a focus on cloud engineering — and preparing for the AWS Certified Cloud Practitioner certification.'
     },
     'hero.ctaProjects': { de: 'Projekte ansehen', en: 'View projects' },
     'hero.ctaCv': { de: 'Lebenslauf (PDF)', en: 'Resume (PDF)' },
@@ -24,8 +26,8 @@ const translations = {
     'about.heading': { de: 'Über mich', en: 'About me' },
     'about.p1': { de: 'Mein Name ist Sören Neumann, geboren 1985, aufgewachsen und wohnhaft in Nordenham, Niedersachsen.', en: 'My name is Sören Neumann, born in 1985, raised and living in Nordenham, Lower Saxony, Germany.' },
     'about.p2': {
-        de: 'Mein beruflicher Weg begann in der Feinwerkmechanik: Ausbildung zum Feinwerkmechaniker, danach Qualifizierung zum Strukturmechaniker Luftfahrt mit Einsatz bei Airbus in Bremen (A320-Montage, A400M), gefolgt von einer Weiterbildung zum Staatlich geprüften Techniker der Fachrichtung Maschinentechnik. In den letzten Jahren habe ich als CNC-Maschinenbediener im 5-Achs-Fräsen gearbeitet.',
-        en: 'My career began in precision mechanics: an apprenticeship as a precision mechanic, followed by qualification as an aerospace structural mechanic working for Airbus in Bremen (A320 assembly, A400M), then further training as a certified mechanical engineering technician. Most recently I worked as a CNC machine operator in 5-axis milling.'
+        de: 'Mein beruflicher Weg begann in der Feinwerkmechanik: Ausbildung zum Feinwerkmechaniker, danach Qualifizierung zum Strukturmechaniker Luftfahrt mit Einsatz in der Flugzeugmontage, gefolgt von einer Weiterbildung zum Staatlich geprüften Techniker der Fachrichtung Maschinentechnik. In den letzten Jahren habe ich als CNC-Maschinenbediener im 5-Achs-Fräsen gearbeitet.',
+        en: 'My career began in precision mechanics: an apprenticeship as a precision mechanic, followed by qualification as an aerospace structural mechanic working in aircraft assembly, then further training as a certified mechanical engineering technician. Most recently I worked as a CNC machine operator in 5-axis milling.'
     },
     'about.p3': {
         de: 'Seit Mai 2026 gehe ich den nächsten Schritt: ein Quereinsteiger-Studium zum Software-Ingenieur mit Schwerpunkt Python-Entwicklung und dem klaren Ziel Cloud Engineering. Parallel bereite ich mich auf die Zertifizierung <strong>AWS Certified Cloud Practitioner</strong> vor.',
@@ -46,7 +48,7 @@ const translations = {
     'skills.cloud5': { de: 'Datenanalyse & Visualisierung (pandas, seaborn, matplotlib)', en: 'Data analysis & visualization (pandas, seaborn, matplotlib)' },
     'skills.craftHeading': { de: 'Handwerkliche Wurzeln', en: 'Hands-on Engineering Roots' },
     'skills.craft1': { de: 'Feinwerkmechaniker (Facharbeiterbrief)', en: 'Precision Mechanic (certified journeyman)' },
-    'skills.craft2': { de: 'Strukturmechaniker Luftfahrt — Airbus A320/A400M', en: 'Aerospace Structural Mechanic — Airbus A320/A400M' },
+    'skills.craft2': { de: 'Strukturmechaniker Luftfahrt — Flugzeugmontage', en: 'Aerospace Structural Mechanic — aircraft assembly' },
     'skills.craft3': { de: 'Staatlich geprüfter Techniker, Maschinentechnik', en: 'State-certified Technician, Mechanical Engineering' },
     'skills.craft4': { de: 'CNC-Fräsen/-Drehen, CAD/CAM (Autodesk Inventor)', en: 'CNC milling/turning, CAD/CAM (Autodesk Inventor)' },
 
@@ -253,7 +255,10 @@ const heroMedia = document.querySelector('.video-hero-media');
 const heroSection = document.querySelector('.video-hero');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (heroMedia && heroSection && !prefersReducedMotion) {
+// Nur als Ersatz, falls GSAP nicht geladen wurde – sonst übernimmt ScrollTrigger (siehe unten)
+const hasGsap = !!(window.gsap && window.ScrollTrigger);
+
+if (heroMedia && heroSection && !prefersReducedMotion && !hasGsap) {
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -274,6 +279,369 @@ if (heroMedia && (window.innerWidth < 600 || saveData)) {
     heroMedia.removeAttribute('autoplay');
     heroMedia.pause();
 }
+
+// ==================== Hero: animiertes Cloud-Netzwerk ====================
+// Punkte (= Server/Dienste) treiben langsam umher. Liegen zwei nah beieinander,
+// wird eine Linie gezeichnet. Ab und zu wandert ein "Datenpaket" über eine Verbindung.
+(function initHeroNetwork() {
+    const canvas = document.getElementById('heroNetwork');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const hero = canvas.parentElement;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const LINK_DISTANCE = 150;   // ab welchem Abstand (px) Punkte verbunden werden
+    let nodes = [];
+    let packets = [];
+    let width = 0;
+    let height = 0;
+    let running = true;
+    const mouse = { x: null, y: null };
+
+    function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = hero.clientWidth;
+        height = hero.clientHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        // Anzahl der Punkte passt sich der Fläche an (Handy = weniger)
+        const count = Math.round(Math.min(90, Math.max(28, (width * height) / 11000)));
+        nodes = Array.from({ length: count }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: Math.random() * 1.6 + 1.2,
+            hub: Math.random() < 0.12   // einige größere "Knotenpunkte"
+        }));
+        packets = [];
+    }
+
+    function spawnPacket() {
+        const a = nodes[Math.floor(Math.random() * nodes.length)];
+        const neighbours = nodes.filter(b => b !== a && Math.hypot(a.x - b.x, a.y - b.y) < LINK_DISTANCE);
+        if (!neighbours.length) return;
+        const b = neighbours[Math.floor(Math.random() * neighbours.length)];
+        packets.push({ from: a, to: b, t: 0, speed: 0.012 + Math.random() * 0.01 });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Verbindungen
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const a = nodes[i];
+                const b = nodes[j];
+                const dist = Math.hypot(a.x - b.x, a.y - b.y);
+                if (dist < LINK_DISTANCE) {
+                    const alpha = (1 - dist / LINK_DISTANCE) * 0.45;
+                    ctx.strokeStyle = `rgba(96, 165, 250, ${alpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(a.x, a.y);
+                    ctx.lineTo(b.x, b.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Punkte
+        nodes.forEach(n => {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.hub ? n.r + 1.8 : n.r, 0, Math.PI * 2);
+            ctx.fillStyle = n.hub ? 'rgba(167, 139, 250, 0.95)' : 'rgba(147, 197, 253, 0.85)';
+            ctx.shadowColor = n.hub ? '#a78bfa' : '#60a5fa';
+            ctx.shadowBlur = n.hub ? 14 : 6;
+            ctx.fill();
+        });
+        ctx.shadowBlur = 0;
+
+        // Datenpakete
+        packets.forEach(p => {
+            const x = p.from.x + (p.to.x - p.from.x) * p.t;
+            const y = p.from.y + (p.to.y - p.from.y) * p.t;
+            ctx.beginPath();
+            ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.shadowColor = '#60a5fa';
+            ctx.shadowBlur = 16;
+            ctx.fill();
+        });
+        ctx.shadowBlur = 0;
+    }
+
+    function update() {
+        nodes.forEach(n => {
+            // Maus zieht Punkte leicht an
+            if (mouse.x !== null) {
+                const dx = mouse.x - n.x;
+                const dy = mouse.y - n.y;
+                const dist = Math.hypot(dx, dy);
+                if (dist < 180 && dist > 1) {
+                    n.vx += (dx / dist) * 0.015;
+                    n.vy += (dy / dist) * 0.015;
+                }
+            }
+            // Geschwindigkeit begrenzen
+            const speed = Math.hypot(n.vx, n.vy);
+            if (speed > 0.8) {
+                n.vx *= 0.8 / speed;
+                n.vy *= 0.8 / speed;
+            }
+            n.x += n.vx;
+            n.y += n.vy;
+            // An den Rändern abprallen
+            if (n.x < 0 || n.x > width) n.vx *= -1;
+            if (n.y < 0 || n.y > height) n.vy *= -1;
+        });
+
+        if (Math.random() < 0.04 && packets.length < 8) spawnPacket();
+        packets.forEach(p => { p.t += p.speed; });
+        packets = packets.filter(p => p.t < 1);
+    }
+
+    function loop() {
+        if (!running) return;
+        update();
+        draw();
+        requestAnimationFrame(loop);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    if (reduceMotion) {
+        draw();   // nur ein ruhiges Standbild
+        return;
+    }
+
+    hero.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+    hero.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    // Animation pausieren, wenn der Hero nicht sichtbar ist (spart Akku/CPU)
+    new IntersectionObserver(([entry]) => {
+        const wasRunning = running;
+        running = entry.isIntersecting;
+        if (running && !wasRunning) loop();
+    }).observe(hero);
+
+    loop();
+})();
+
+// ==================== Lenis: weiches Scrollen ====================
+// Lenis fängt das Mausrad ab und gleitet sanft zur Zielposition.
+// GSAP steuert den Takt (ticker), damit Lenis und ScrollTrigger exakt synchron laufen.
+window.siteLenis = null;
+(function initSmoothScroll() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!window.Lenis || reduceMotion) return;
+
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),   // "expo out": schnell los, weich aus
+        smoothWheel: true
+    });
+    window.siteLenis = lenis;
+
+    if (hasGsap) {
+        gsap.registerPlugin(ScrollTrigger);
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(time => lenis.raf(time * 1000));   // GSAP rechnet in Sekunden, Lenis in ms
+        gsap.ticker.lagSmoothing(0);
+    } else {
+        const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+    }
+
+    // Menü- und Button-Links (#about, #projects …) weich anspringen – minus Höhe der Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href');
+            if (id.length < 2) return;
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            const navbar = document.querySelector('.navbar');
+            const offset = (navbar ? navbar.offsetHeight : 0) + 16;
+            lenis.scrollTo(target, { offset: -offset });
+            history.pushState(null, '', id);
+        });
+    });
+})();
+
+// ==================== Futuristische Scroll-Effekte ====================
+(function initScrollEffects() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1) Scroll-Fortschrittsbalken oben
+    const bar = document.getElementById('scrollProgress');
+    if (bar) {
+        let ticking = false;
+        const updateBar = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = max > 0 ? window.scrollY / max : 0;
+            bar.style.transform = `scaleX(${progress})`;
+            ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateBar);
+                ticking = true;
+            }
+        });
+        updateBar();
+    }
+
+    // 2) Lichtkegel auf den Karten folgt der Maus
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        });
+    });
+
+    // Ab hier: Effekte beim Hineinscrollen
+    if (reduceMotion) return;
+    if (!hasGsap && !('IntersectionObserver' in window)) return;
+
+    // Große Blöcke bekommen die Klasse "reveal", Karten zusätzlich eine Scan-Linie
+    const blocks = document.querySelectorAll('.container > .card, .video-hero, .section-divider, .tech-marquee');
+    const ITEM_SELECTOR = '.project-card, .skills-list li, .gallery-item';
+    blocks.forEach(block => {
+        block.classList.add('reveal');
+        if (block.classList.contains('card')) {
+            const scan = document.createElement('div');
+            scan.className = 'scanline';
+            scan.setAttribute('aria-hidden', 'true');
+            block.appendChild(scan);
+        }
+    });
+
+    // Überschrift "entschlüsselt" sich wie in einem Hacker-Film
+    const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&/<>';
+    function decode(el) {
+        const finalText = el.textContent;
+        const chars = Array.from(finalText);   // Array.from, damit Emojis heil bleiben
+        let frame = 0;
+        let lastSet = null;
+        const totalFrames = 24;
+
+        const timer = setInterval(() => {
+            // Wurde zwischendurch die Sprache gewechselt? Dann abbrechen.
+            if (lastSet !== null && el.textContent !== lastSet) {
+                clearInterval(timer);
+                return;
+            }
+            frame++;
+            const revealed = Math.floor((frame / totalFrames) * chars.length);
+            lastSet = chars.map((ch, i) => {
+                if (i < revealed || ch === ' ' || /[^\w]/.test(ch)) return ch;
+                return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+            }).join('');
+            el.textContent = lastSet;
+
+            if (frame >= totalFrames) {
+                el.textContent = finalText;
+                clearInterval(timer);
+            }
+        }, 30);
+    }
+
+    // ---------- Variante A: GSAP + ScrollTrigger (Standard) ----------
+    if (hasGsap) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        blocks.forEach(block => {
+            const items = block.querySelectorAll(ITEM_SELECTOR);
+            const scan = block.querySelector('.scanline');
+            const heading = block.querySelector('.section-heading h3');
+            const animated = [block, ...items];
+
+            // Während GSAP animiert, CSS-Übergänge abschalten (sonst "ziehen" beide am selben Wert)
+            animated.forEach(el => el.classList.add('gsap-animating'));
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: block,
+                    start: 'top 88%',       // los, wenn die Oberkante 88 % tief im Bild ist
+                    once: true,             // jeder Block animiert nur einmal
+                    onEnter: () => { if (heading) decode(heading); }
+                },
+                onComplete: () => {
+                    // Inline-Styles entfernen, damit Hover-Effekte aus dem CSS wieder greifen
+                    gsap.set(animated, { clearProps: 'transform,opacity,filter' });
+                    animated.forEach(el => el.classList.remove('gsap-animating'));
+                }
+            });
+
+            tl.from(block, { y: 90, opacity: 0, scale: 0.96, filter: 'blur(8px)', duration: 1.2, ease: 'expo.out' });
+            if (scan) {
+                tl.set(scan, { top: '0%', opacity: 1 }, 0.15)
+                  .to(scan, { top: '100%', opacity: 0, duration: 1.3, ease: 'power2.out' }, 0.15);
+            }
+            if (items.length) {
+                tl.from(items, { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08 }, 0.25);
+            }
+        });
+
+        // Hero: Text und Netzwerk wandern beim Wegscrollen mit unterschiedlichem Tempo (Tiefenwirkung)
+        const hero = document.querySelector('.hero-main');
+        if (hero) {
+            const heroScroll = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
+            gsap.to('.hero-content', { yPercent: -30, opacity: 0.15, ease: 'none', scrollTrigger: heroScroll });
+            gsap.to('#heroNetwork', { yPercent: 18, ease: 'none', scrollTrigger: { ...heroScroll } });
+        }
+
+        // Drohnenvideo: Parallax, butterweich an die Scrollposition gekoppelt
+        const media = document.querySelector('.video-hero-media');
+        const videoSection = document.querySelector('.video-hero');
+        if (media && videoSection) {
+            gsap.fromTo(media,
+                { yPercent: -12, scale: 1.2 },
+                { yPercent: 12, scale: 1.2, ease: 'none',
+                  scrollTrigger: { trigger: videoSection, start: 'top bottom', end: 'bottom top', scrub: true } });
+        }
+
+        // Bilder können später nachladen und die Seitenhöhe ändern -> Positionen neu berechnen
+        window.addEventListener('load', () => ScrollTrigger.refresh());
+        return;
+    }
+
+    // ---------- Variante B: Ersatz ohne GSAP (IntersectionObserver + CSS) ----------
+    document.documentElement.classList.add('js-reveal');
+    blocks.forEach(block => {
+        block.querySelectorAll(ITEM_SELECTOR).forEach((item, i) => {
+            item.classList.add('reveal-item');
+            item.style.setProperty('--delay', `${0.15 + i * 0.08}s`);
+        });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const block = entry.target;
+            block.classList.add('is-visible');
+            const heading = block.querySelector('.section-heading h3');
+            if (heading) decode(heading);
+            observer.unobserve(block);   // jeder Block animiert nur einmal
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    blocks.forEach(block => observer.observe(block));
+})();
 
 // ==================== 3D-Tilt-Effekt für die Galerie ====================
 document.querySelectorAll('.gallery-item').forEach(item => {
@@ -301,12 +669,14 @@ document.querySelectorAll('.gallery-item img').forEach(img => {
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         lightbox.classList.add('active');
+        if (window.siteLenis) window.siteLenis.stop();   // Seite dahinter nicht weiterscrollen
     });
 });
 
 function closeLightbox(){
     lightbox.classList.remove('active');
     lightboxImg.src = '';
+    if (window.siteLenis) window.siteLenis.start();
 }
 if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 if (lightbox) {

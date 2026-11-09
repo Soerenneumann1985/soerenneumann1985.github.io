@@ -38,8 +38,8 @@ section, header{
 }
 
 .container{
-    width:90%;
-    max-width:1100px;
+    width:92%;
+    max-width:1400px;
     margin:0 auto;
     position:relative;
     z-index:1;
@@ -112,8 +112,8 @@ body::after{
 }
 
 .nav-container{
-    width:90%;
-    max-width:1100px;
+    width:92%;
+    max-width:1400px;
     margin:0 auto;
     display:flex;
     align-items:center;
@@ -280,8 +280,122 @@ header.hero-main{
     border:1px solid rgba(255,255,255,0.08);
     box-shadow:0 35px 90px rgba(0,0,0,0.25);
     backdrop-filter:blur(16px);
-    transform:perspective(900px) rotateX(4deg);
-    transform-origin:center top;
+}
+
+/* Neuer Hero: Platz für das Netzwerk, Text zentriert darüber */
+header.hero-main{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+    min-height:min(78vh, 720px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:80px 24px;
+    background:
+        radial-gradient(circle at 50% 120%, rgba(37,99,235,0.25), transparent 60%),
+        rgba(15,23,42,0.55);
+}
+
+/* Netzwerk-Canvas füllt den ganzen Hero aus */
+.hero-network{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+}
+
+/* Text über dem Netzwerk: dunkler Verlauf in der Mitte hält ihn lesbar */
+.hero-content{
+    position:relative;
+    max-width:1100px;
+}
+
+.hero-content::before{
+    content:"";
+    position:absolute;
+    inset:-40px -60px;
+    z-index:-1;
+    background:radial-gradient(closest-side, rgba(15,23,42,0.75), transparent);
+    pointer-events:none;
+}
+
+/* Lichtstreifen, der langsam über den Hero wandert */
+.hero-sweep{
+    position:absolute;
+    top:-30%;
+    left:0;
+    width:25%;
+    height:160%;
+    z-index:-1;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+    filter:blur(20px);
+    animation:hero-sweep 9s ease-in-out 1s infinite;
+    pointer-events:none;
+}
+
+@keyframes hero-sweep{
+    0%{ transform:translateX(-120%) rotate(16deg); opacity:0; }
+    20%{ opacity:1; }
+    100%{ transform:translateX(480%) rotate(16deg); opacity:0; }
+}
+
+/* Headline: jede Zeile gleitet von unten herein */
+h1.hero-title{
+    font-size:clamp(38px, 6.4vw, 76px);
+    line-height:1.08;
+    font-weight:600;
+    letter-spacing:-1px;
+    color:white;
+    text-shadow:none;
+    margin:6px 0 4px;
+}
+
+.hero-line{
+    display:block;
+    overflow:hidden;
+    padding-bottom:.08em;
+}
+
+.hero-line > span{
+    display:inline-block;
+    animation:hero-rise 1s cubic-bezier(.2,.8,.1,1) both;
+}
+
+.hero-line + .hero-line > span{
+    animation-delay:.18s;
+}
+
+.hero-line-accent > span{
+    background:linear-gradient(135deg,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+@keyframes hero-rise{
+    from{ transform:translateY(110%); }
+    to{ transform:translateY(0); }
+}
+
+/* Eyebrow, Text und Buttons blenden nacheinander ein */
+.hero-fade{
+    animation:hero-fade 1s ease both;
+}
+.eyebrow.hero-fade{ animation-delay:.05s; }
+.hero-intro.hero-fade{ animation-delay:.55s; }
+.hero-cta.hero-fade{ animation-delay:.75s; }
+
+@keyframes hero-fade{
+    from{ opacity:0; transform:translateY(12px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+@media(prefers-reduced-motion: reduce){
+    .hero-line > span,
+    .hero-fade,
+    .hero-sweep{
+        animation:none;
+    }
 }
 
 .eyebrow{
@@ -310,7 +424,7 @@ h3{
 }
 
 .hero-intro{
-    max-width:640px;
+    max-width:780px;
     margin:24px auto 0;
     color:var(--text-main);
 }
@@ -655,8 +769,16 @@ p{
 
 .projects-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr));
     gap:24px;
+}
+
+/* Auf großen Bildschirmen ist die Finanzwabe-Karte doppelt so breit:
+   5 Projekte füllen dann genau 2 Reihen à 3 Plätze */
+@media(min-width:1200px){
+    .projects-grid .project-card.featured{
+        grid-column:span 2;
+    }
 }
 
 .project-card{
@@ -723,7 +845,8 @@ p{
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    /* max. 3 Spalten: 6 Bilder stehen sauber in 3 × 2 (bzw. 2 × 3 / 1 × 6) */
+    grid-template-columns:repeat(auto-fit, minmax(min(100%, 340px), 1fr));
     gap:20px;
 }
 
@@ -987,5 +1110,350 @@ footer.site-footer .footer-links a:hover{
 
     .profile-image{
         width:220px;
+    }
+}
+
+/* =====================================================================
+   FUTURISTISCHES UPDATE – gilt für die ganze Seite
+   ===================================================================== */
+
+/* ---------- Scroll-Fortschrittsbalken oben ---------- */
+.scroll-progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    width:100%;
+    z-index:300;
+    transform-origin:left center;
+    transform:scaleX(0);
+    background:linear-gradient(90deg,#60a5fa,#a78bfa,#22d3ee);
+    box-shadow:0 0 12px rgba(96,165,250,.9);
+}
+
+/* ---------- Leuchtendes Raster im Hintergrund ---------- */
+.bg-grid{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(96,165,250,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(96,165,250,0.07) 1px, transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 40%, #000 20%, transparent 75%);
+    mask-image:radial-gradient(ellipse at 50% 40%, #000 20%, transparent 75%);
+}
+
+/* ---------- Scroll-Hinweis unten im Hero ---------- */
+.hero-scroll-hint{
+    position:absolute;
+    left:50%;
+    bottom:22px;
+    width:22px;
+    height:36px;
+    margin-left:-11px;
+    border:1.5px solid rgba(255,255,255,0.35);
+    border-radius:12px;
+}
+.hero-scroll-hint span{
+    position:absolute;
+    left:50%;
+    top:7px;
+    width:3px;
+    height:7px;
+    margin-left:-1.5px;
+    border-radius:2px;
+    background:#60a5fa;
+    animation:scroll-hint 1.8s ease-in-out infinite;
+}
+@keyframes scroll-hint{
+    0%{ transform:translateY(0); opacity:1; }
+    70%{ transform:translateY(12px); opacity:0; }
+    100%{ opacity:0; }
+}
+
+/* ---------- Tech-Laufband ---------- */
+.tech-marquee{
+    overflow:hidden;
+    margin:-20px 0 40px;
+    padding:18px 0;
+    border-top:1px solid rgba(96,165,250,0.18);
+    border-bottom:1px solid rgba(96,165,250,0.18);
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.tech-marquee-track{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    width:max-content;
+    animation:marquee 32s linear infinite;
+    font-family:'JetBrains Mono', monospace;
+    font-size:15px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#94a3b8;
+    white-space:nowrap;
+}
+.tech-marquee-track i{
+    font-style:normal;
+    font-size:10px;
+    color:#a78bfa;
+}
+@keyframes marquee{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+}
+
+/* ---------- Abschnitts-Nummern im HUD-Stil ("// 01") ---------- */
+.container{
+    counter-reset:section;
+}
+.section-heading{
+    counter-increment:section;
+}
+.section-heading::before{
+    content:"// " counter(section, decimal-leading-zero);
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    letter-spacing:3px;
+    color:#a78bfa;
+    margin-bottom:4px;
+}
+.section-heading h3{
+    font-family:'Poppins',sans-serif;
+    letter-spacing:-.5px;
+    background:linear-gradient(135deg,#ffffff 30%,#93c5fd);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.section-heading::after{
+    content:"";
+    display:block;
+    width:64px;
+    height:2px;
+    margin:0 auto 26px;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);
+    box-shadow:0 0 12px rgba(96,165,250,.8);
+}
+
+/* ---------- Karten: Lichtkegel folgt der Maus + HUD-Ecken ---------- */
+.card{
+    overflow:hidden;
+}
+.card:not(.fw-promo){
+    background:
+        radial-gradient(520px circle at var(--mx, 50%) var(--my, -20%), rgba(96,165,250,0.13), transparent 45%),
+        rgba(255,255,255,0.06);
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    inset:12px;
+    pointer-events:none;
+    border-radius:18px;
+    /* vier kleine Eckwinkel wie in einem Sci-Fi-Interface */
+    background:
+        linear-gradient(#60a5fa,#60a5fa) top left / 18px 1.5px no-repeat,
+        linear-gradient(#60a5fa,#60a5fa) top left / 1.5px 18px no-repeat,
+        linear-gradient(#a78bfa,#a78bfa) top right / 18px 1.5px no-repeat,
+        linear-gradient(#a78bfa,#a78bfa) top right / 1.5px 18px no-repeat,
+        linear-gradient(#a78bfa,#a78bfa) bottom left / 18px 1.5px no-repeat,
+        linear-gradient(#a78bfa,#a78bfa) bottom left / 1.5px 18px no-repeat,
+        linear-gradient(#60a5fa,#60a5fa) bottom right / 18px 1.5px no-repeat,
+        linear-gradient(#60a5fa,#60a5fa) bottom right / 1.5px 18px no-repeat;
+    opacity:.45;
+    transition:opacity .4s, inset .4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(96,165,250,0.35);
+}
+
+.card:hover::after{
+    opacity:1;
+    inset:8px;
+}
+
+/* Projekt- und Zertifikatskarten: leuchtender Rand beim Hover */
+.project-card{
+    position:relative;
+    background:rgba(15,23,42,0.55);
+}
+
+.project-card::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:inherit;
+    padding:1px;
+    background:linear-gradient(135deg,#60a5fa,transparent 40%,transparent 60%,#a78bfa);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity:0;
+    transition:opacity .35s;
+    pointer-events:none;
+}
+
+.project-card:hover::before{
+    opacity:1;
+}
+
+.project-tags span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+}
+
+.cert-status,
+.eyebrow,
+.section-divider{
+    font-family:'JetBrains Mono', monospace;
+}
+
+/* Skills-Liste: kleiner leuchtender Punkt vorne */
+.skills-list li{
+    position:relative;
+    padding-left:40px;
+}
+.skills-list li::before{
+    content:"";
+    position:absolute;
+    left:18px;
+    top:50%;
+    width:7px;
+    height:7px;
+    margin-top:-3.5px;
+    border-radius:50%;
+    background:#60a5fa;
+    box-shadow:0 0 10px #60a5fa;
+}
+
+/* Buttons: Lichtreflex läuft beim Hover durch */
+.button{
+    position:relative;
+    overflow:hidden;
+}
+.button::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-60%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+    transform:skewX(-20deg);
+    transition:left .6s ease;
+}
+.button:hover::after{
+    left:130%;
+}
+.button:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+
+/* Formularfelder mit Leucht-Fokus */
+input:focus{
+    outline:none;
+    border-color:#60a5fa;
+    box-shadow:0 0 0 3px rgba(96,165,250,0.25), 0 0 20px rgba(96,165,250,0.25);
+}
+
+/* ---------- SCROLL-EFFEKTE ----------
+   Nur aktiv, wenn JavaScript läuft (Klasse "js-reveal" am <html>).
+   Ohne JS bleibt alles ganz normal sichtbar. */
+.js-reveal .reveal{
+    opacity:0;
+    translate:0 60px;
+    scale:.97;
+    filter:blur(6px);
+    transition:
+        opacity .9s ease,
+        translate .9s cubic-bezier(.2,.8,.1,1),
+        scale .9s cubic-bezier(.2,.8,.1,1),
+        filter .9s ease;
+    transition-delay:var(--delay, 0s);
+}
+
+.js-reveal .reveal.is-visible{
+    opacity:1;
+    translate:0 0;
+    scale:1;
+    filter:none;
+}
+
+/* Kleinere Elemente (Karten, Listenpunkte, Bilder) kommen leicht versetzt */
+.js-reveal .reveal-item{
+    opacity:0;
+    translate:0 30px;
+    transition:
+        opacity .7s ease var(--delay, 0s),
+        translate .7s cubic-bezier(.2,.8,.1,1) var(--delay, 0s),
+        transform .2s ease-out,
+        box-shadow .3s,
+        border-color .3s,
+        background .3s;
+}
+.js-reveal .is-visible .reveal-item{
+    opacity:1;
+    translate:0 0;
+}
+
+/* Scan-Linie, die beim Erscheinen einmal über die Karte fährt */
+.reveal .scanline{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:2px;
+    z-index:2;
+    pointer-events:none;
+    background:linear-gradient(90deg, transparent, #60a5fa, #a78bfa, transparent);
+    box-shadow:0 0 18px #60a5fa;
+    opacity:0;
+}
+.js-reveal .reveal.is-visible .scanline{
+    animation:scan 1.3s ease-out .2s 1 both;
+}
+@keyframes scan{
+    0%{ top:0; opacity:0; }
+    10%{ opacity:1; }
+    100%{ top:100%; opacity:0; }
+}
+
+/* ---------- GSAP + Lenis ---------- */
+/* Während GSAP ein Element animiert, keine CSS-Übergänge – sonst ruckelt es */
+.gsap-animating{
+    transition:none !important;
+}
+/* Lenis übernimmt das weiche Scrollen – das CSS-"smooth" würde sich damit beißen */
+html.lenis,
+html.lenis-smooth{
+    scroll-behavior:auto !important;
+}
+
+@media(max-width:768px){
+    .tech-marquee-track{ font-size:13px; gap:22px; }
+    .hero-scroll-hint{ display:none; }
+}
+
+@media(prefers-reduced-motion: reduce){
+    .js-reveal .reveal,
+    .js-reveal .reveal-item{
+        opacity:1;
+        translate:none;
+        scale:none;
+        filter:none;
+        transition:none;
+    }
+    .tech-marquee-track,
+    .hero-scroll-hint span,
+    .reveal .scanline{
+        animation:none;
     }
 }
