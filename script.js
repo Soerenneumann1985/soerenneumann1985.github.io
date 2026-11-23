@@ -1,7 +1,7 @@
 // ==================== Übersetzungen (DE/EN) ====================
 const translations = {
-    'meta.title': { de: 'Sören Neumann | Cloud Engineer (angehend)', en: 'Sören Neumann | Aspiring Cloud Engineer' },
-    'meta.description': { de: 'Persönliche Homepage von Sören Neumann: angehender Cloud Engineer bei MSIT, zuvor Feinwerkmechaniker & Techniker Maschinenbau. Projekte, Zertifikate und Kontakt.', en: 'Personal website of Sören Neumann: aspiring cloud engineer at MSIT, previously precision mechanic & mechanical engineering technician. Projects, certifications and contact.' },
+    'meta.title': { de: 'Sören Neumann | Cloud Engineer in Ausbildung', en: 'Sören Neumann | Cloud Engineer in Training' },
+    'meta.description': { de: 'Persönliche Homepage von Sören Neumann: Cloud Engineer in Ausbildung bei Masterschool, zuvor Feinwerkmechaniker & Techniker Maschinentechnik. Projekte, Zertifikate und Kontakt.', en: 'Personal website of Sören Neumann: cloud engineer in training at Masterschool, previously precision mechanic & mechanical engineering technician. Projects, certifications and contact.' },
 
     'nav.home': { de: 'Start', en: 'Home' },
     'nav.about': { de: 'Über mich', en: 'About' },
@@ -11,13 +11,13 @@ const translations = {
     'nav.contact': { de: 'Kontakt', en: 'Contact' },
     'nav.personal': { de: 'Persönliches', en: 'Personal' },
 
-    'hero.eyebrow': { de: 'Angehender Cloud Engineer @ MSIT', en: 'Aspiring Cloud Engineer @ MSIT' },
+    'hero.eyebrow': { de: 'Cloud Engineer in Ausbildung @ Masterschool', en: 'Cloud Engineer in Training @ Masterschool' },
     'hero.subtitle': { de: 'Vom Feinwerkmechaniker zum Cloud Engineer', en: 'From Precision Mechanic to Cloud Engineer' },
     'hero.line1': { de: 'Präzision aus der Werkstatt.', en: 'Precision from the workshop.' },
     'hero.line2': { de: 'Gebaut für die Cloud.', en: 'Built for the cloud.' },
     'hero.intro': {
-        de: 'Über 15 Jahre Erfahrung aus Präzisionshandwerk und Luftfahrttechnik treffen auf moderne Softwareentwicklung. Aktuell im Quereinsteiger-Studium zum Software-Ingenieur mit Schwerpunkt Cloud Engineering — und in Vorbereitung auf die Zertifizierung AWS Certified Cloud Practitioner.',
-        en: '15+ years of experience in precision engineering and aerospace manufacturing meet modern software development. Currently retraining as a software engineer with a focus on cloud engineering — and preparing for the AWS Certified Cloud Practitioner certification.'
+        de: 'Über 15 Jahre Erfahrung aus Präzisionshandwerk und Luftfahrttechnik treffen auf moderne Softwareentwicklung. Aktuell in der Ausbildung zum Cloud Engineer — und in Vorbereitung auf die Zertifizierung AWS Certified Cloud Practitioner.',
+        en: '15+ years of experience in precision engineering and aerospace manufacturing meet modern software development. Currently training to become a cloud engineer — and preparing for the AWS Certified Cloud Practitioner certification.'
     },
     'hero.ctaProjects': { de: 'Projekte ansehen', en: 'View projects' },
     'hero.ctaCv': { de: 'Lebenslauf (PDF)', en: 'Resume (PDF)' },
@@ -30,8 +30,8 @@ const translations = {
         en: 'My career began in precision mechanics: an apprenticeship as a precision mechanic, followed by qualification as an aerospace structural mechanic working in aircraft assembly, then further training as a certified mechanical engineering technician. Most recently I worked as a CNC machine operator in 5-axis milling.'
     },
     'about.p3': {
-        de: 'Seit Mai 2026 gehe ich den nächsten Schritt: ein Quereinsteiger-Studium zum Software-Ingenieur mit Schwerpunkt Python-Entwicklung und dem klaren Ziel Cloud Engineering. Parallel bereite ich mich auf die Zertifizierung <strong>AWS Certified Cloud Practitioner</strong> vor.',
-        en: 'Since May 2026 I have been taking the next step: retraining as a software engineer with a focus on Python development and a clear goal of cloud engineering. In parallel, I am preparing for the <strong>AWS Certified Cloud Practitioner</strong> certification.'
+        de: 'Seit Mai 2026 gehe ich den nächsten Schritt: die Ausbildung zum Cloud Engineer bei Masterschool, mit Schwerpunkt Python-Entwicklung und dem klaren Ziel Cloud Engineering. Parallel bereite ich mich auf die Zertifizierung <strong>AWS Certified Cloud Practitioner</strong> vor.',
+        en: 'Since May 2026 I have been taking the next step: training as a cloud engineer at Masterschool, with a focus on Python development and a clear goal of cloud engineering. In parallel, I am preparing for the <strong>AWS Certified Cloud Practitioner</strong> certification.'
     },
     'about.p4': {
         de: 'Was mich antreibt: die gleiche Präzision und Sorgfalt, die ich jahrelang an CNC-Maschinen und in der Luftfahrtfertigung gelernt habe, jetzt in sauberen, gut getesteten Code und stabile Cloud-Infrastruktur zu übersetzen.',
@@ -67,7 +67,7 @@ const translations = {
     'certs.awsDesc': { de: 'Aktuell in Vorbereitung — Einstiegszertifizierung von Amazon Web Services.', en: 'Currently in progress — entry-level certification from Amazon Web Services.' },
 
     'projects.heading': { de: 'Projekte', en: 'Projects' },
-    'projects.sub': { de: 'Eine Auswahl an Arbeiten aus Studium und Selbstlernen.', en: 'A selection of work from my studies and self-learning.' },
+    'projects.sub': { de: 'Eine Auswahl an Arbeiten aus Ausbildung und Selbstlernen.', en: 'A selection of work from my training and self-learning.' },
     'projects.p1Title': { de: 'Animals Web Generator', en: 'Animals Web Generator' },
     'projects.p1Desc': {
         de: 'Python-Skript, das Tierdaten über eine externe API abruft und daraus automatisch eine statische HTML-Seite generiert. Nutzt requests und python-dotenv für die API-Key-Verwaltung.',
