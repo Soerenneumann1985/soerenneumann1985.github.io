@@ -15,9 +15,10 @@ document.querySelectorAll("[data-app-link]").forEach((link) => {
 
 // ==================== E-Mail-Adresse kopieren ====================
 // Ohne eingerichtetes Mailprogramm tut ein mailto-Link nichts. Darum steht die Adresse sichtbar da.
-const copyButton = document.getElementById("copyMail");
-const mailAddress = document.getElementById("mailAddress");
-if (copyButton && mailAddress) {
+// Jeder Knopf "copy-mail" kopiert die Adresse (".mail-address") aus demselben Absatz.
+document.querySelectorAll(".copy-mail").forEach((copyButton) => {
+    const mailAddress = copyButton.parentElement.querySelector(".mail-address");
+    if (!mailAddress) return;
     copyButton.addEventListener("click", async () => {
         try {
             await navigator.clipboard.writeText(mailAddress.textContent.trim());
@@ -31,7 +32,7 @@ if (copyButton && mailAddress) {
             copyButton.textContent = "Markiert – Strg+C";
         }
     });
-}
+});
 
 // ==================== Mobile Navigation ====================
 const navToggle = document.getElementById("navToggle");

@@ -81,13 +81,13 @@
 
     <section class="card fw-promo" id="finanzwabe">
         <div class="fw-promo-text">
-            <span class="fw-badge" data-i18n="fw.badge">Neu · Beta kostenlos</span>
+            <span class="fw-badge" data-i18n="fw.badge">Neu · kostenlos</span>
             <h3 class="fw-title"><img src="finanzwabe/assets/logo.svg" alt="" width="44" height="44"> Finanzwabe</h3>
             <p class="fw-slogan" data-i18n="fw.slogan">Wabe für Wabe schuldenfrei.</p>
-            <p data-i18n="fw.text">Meine eigene Finanz-App: Sie zeigt, wofür das Geld draufgeht, wie viel man insgesamt besitzt – und an welchem Tag der letzte Kredit abbezahlt ist. Ohne Bank-Login, ohne Tracking, im Browser und als App auf dem Handy.</p>
+            <p data-i18n="fw.text">Meine eigene Finanz-App: Sie zeigt, wofür das Geld draufgeht, wie viel man insgesamt besitzt – und an welchem Tag der letzte Kredit abbezahlt ist. Ohne Bank-Login, ohne Tracking. Läuft kostenlos auf deinem Windows-Rechner, deine Daten bleiben dort.</p>
             <div class="fw-actions">
                 <a class="button" href="finanzwabe/index.html" data-i18n="fw.cta">Finanzwabe entdecken →</a>
-                <a class="button secondary" href="finanzwabe/index.html#beta" data-i18n="fw.ctaBeta">Beta-Tester werden</a>
+                <a class="button secondary" href="finanzwabe/index.html#beta" data-i18n="fw.ctaBeta">Herunterladen</a>
             </div>
         </div>
         <a class="fw-phone" href="finanzwabe/index.html" aria-label="Zur Finanzwabe-Seite">
@@ -175,9 +175,9 @@
         <p class="section-sub" data-i18n="projects.sub">Eine Auswahl an Arbeiten aus Studium und Selbstlernen.</p>
         <div class="projects-grid">
             <article class="project-card featured">
-                <div class="cert-status progress" data-i18n="projects.fwStatus">Beta</div>
+                <div class="cert-status progress" data-i18n="projects.fwStatus">Zum Testen</div>
                 <h4>Finanzwabe</h4>
-                <p data-i18n="projects.fwDesc">Vollständige Finanz-App als Progressive Web App: Buchungen, Budgets, Nettovermögen und Kredit-Prognose „schuldenfrei am …“. Mit Login, Excel-Import, eigenen Diagrammen und über 150 automatischen Tests.</p>
+                <p data-i18n="projects.fwDesc">Vollständige Finanz-App für den eigenen Rechner: Buchungen, Budgets, Nettovermögen und Kredit-Prognose „schuldenfrei am …“. Mit Excel- und Bank-Import, eigenen Diagrammen, KI-Assistent Wabi und rund 290 automatischen Tests.</p>
                 <div class="project-tags"><span>Python</span><span>Flask</span><span>SQLAlchemy</span><span>PWA</span><span>pytest</span></div>
                 <a href="finanzwabe/index.html" data-i18n="projects.fwCta">Zur Produktseite →</a>
             </article>
@@ -211,18 +211,11 @@
     <section class="card" id="contact">
         <div class="section-heading"><h3 data-i18n="contact.heading">Schreib mir eine E-Mail</h3></div>
 
-        <form action="mailto:soerenneumann85@gmx.de" method="get">
-
-            <label for="name" data-i18n="contact.name">Name</label>
-            <input type="text" id="name" name="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Dein Name">
-
-            <label for="email" data-i18n="contact.email">E-Mail</label>
-            <input type="email" id="email" name="email" data-i18n-placeholder="contact.emailPlaceholder" placeholder="deine@email.de">
-
-            <input type="submit" data-i18n-value="contact.submit" value="Absenden">
-
-        </form>
-        <p class="contact-alt center" data-i18n="contact.altHtml" data-i18n-html="true">oder direkt an <a href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a></p>
+        <p class="contact-address center">
+            <a class="mail-address" href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a>
+            <button class="button secondary copy-mail" type="button" data-i18n="contact.copy">Adresse kopieren</button>
+        </p>
+        <p class="contact-alt center" data-i18n="contact.hint">Kein Mailprogramm eingerichtet? Dann kopiere die Adresse und schreib mir aus deinem Mail-Konto.</p>
     </section>
 
     <div class="section-divider">

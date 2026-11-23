@@ -7,7 +7,7 @@
     <meta name="description" content="Finanzwabe: die Finanz-App für alle, die Ausgaben im Griff haben und Kredite abbauen wollen. Nettovermögen, Budgets und Schuldenfrei-Datum – ohne Bank-Login, ohne Tracking.">
     <meta name="theme-color" content="#1f4fd1">
     <meta property="og:title" content="Finanzwabe – Wabe für Wabe schuldenfrei">
-    <meta property="og:description" content="Ausgaben, Vermögen und Kredite auf einen Blick. Jetzt kostenlos in der Beta testen.">
+    <meta property="og:description" content="Ausgaben, Vermögen und Kredite auf einen Blick. Kostenlos für Windows, läuft lokal, deine Daten bleiben bei dir.">
     <meta property="og:image" content="assets/app-desktop.jpg">
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="stylesheet" href="styles.css?v=2">
@@ -21,10 +21,10 @@
         <ul class="nav-menu" id="navMenu">
             <li><a href="#fragen">Funktionen</a></li>
             <li><a href="#start">So geht's</a></li>
-            <li><a href="#preise">Preise</a></li>
+            <li><a href="#kostenlos">Kostenlos</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a class="btn btn-small" href="#beta" data-app-link="/registrieren">Kostenlos testen</a>
+        <a class="btn btn-small" href="#beta">Herunterladen</a>
         <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -34,17 +34,17 @@
 <header class="hero" id="top">
     <div class="hero-inner">
         <div class="hero-text">
-            <span class="badge">Jetzt in der Beta – kostenlos</span>
+            <span class="badge">Kostenlos · läuft auf deinem Rechner</span>
             <h1>Wabe für Wabe<br><span class="accent">schuldenfrei.</span></h1>
             <p class="lead">Finanzwabe zeigt dir auf einen Blick, wofür dein Geld draufgeht, wie viel du insgesamt besitzt – und an welchem Tag du deinen letzten Kredit abbezahlt hast.</p>
             <div class="hero-cta">
-                <a class="btn" href="#beta" data-app-link="/registrieren">Kostenlos testen</a>
+                <a class="btn" href="#beta">Für Windows herunterladen</a>
                 <a class="btn btn-ghost" href="#fragen">Funktionen ansehen</a>
             </div>
             <ul class="hero-points">
                 <li>Keine Bank-Zugangsdaten nötig</li>
                 <li>Kein Tracking, keine Werbung</li>
-                <li>Browser, Android &amp; iPhone</li>
+                <li>Windows · Daten bleiben lokal</li>
             </ul>
         </div>
         <div class="hero-phones" aria-hidden="true">
@@ -134,51 +134,29 @@
         <div class="container">
             <h2 class="section-title">In drei Schritten startklar</h2>
             <ol class="steps">
-                <li><span class="hex-number">1</span><h3>Registrieren</h3><p>E-Mail und Passwort – mehr brauchst du nicht. Das Konto liegt nur auf deinem Rechner.</p></li>
+                <li><span class="hex-number">1</span><h3>Herunterladen und starten</h3><p>Datei laden, doppelklicken, den Windows-Hinweis bestätigen. Dann legst du ein Konto an – es liegt nur auf deinem Rechner.</p></li>
                 <li><span class="hex-number">2</span><h3>Stände eintragen</h3><p>Kontostände und Kredite eintragen oder deine Excel-Tabelle importieren.</p></li>
                 <li><span class="hex-number">3</span><h3>Überblick genießen</h3><p>Ausgaben erfassen dauert Sekunden – der Rest rechnet sich von selbst.</p></li>
             </ol>
         </div>
     </section>
 
-    <section class="section section-alt" id="preise">
+    <section class="section section-alt" id="kostenlos">
         <div class="container">
-            <h2 class="section-title">Faire Preise</h2>
-            <p class="section-sub">Während der Beta ist alles kostenlos. Danach gilt ein Tarif nur, wenn du ihn selbst buchst – keine Abofalle.</p>
+            <h2 class="section-title">Kostenlos und lokal</h2>
+            <p class="section-sub">Finanzwabe kostet nichts. Und es läuft dort, wo deine Zahlen hingehören: bei dir.</p>
             <div class="pricing">
                 <div class="price-card highlight">
-                    <span class="price-label">Jetzt</span>
-                    <h3>Beta</h3>
-                    <p class="price">0&nbsp;€</p>
-                    <p class="price-note">während der Testphase</p>
-                    <ul class="checks">
-                        <li>Alle Funktionen</li>
-                        <li>Direkter Draht zum Entwickler</li>
-                        <li>Frühbucher-Preis gesichert</li>
-                    </ul>
-                    <a class="btn" href="#beta" data-app-link="/registrieren">Beta-Tester werden</a>
+                    <h3>Kostenlos</h3>
+                    <p class="price-note">Du zahlst nichts für Finanzwabe. Nur Wabi, der KI-Assistent, braucht einen eigenen Anthropic-Schlüssel. Diese Kosten rechnet Anthropic direkt mit dir ab. Ohne Schlüssel läuft alles andere ganz normal.</p>
                 </div>
                 <div class="price-card">
-                    <span class="price-label">Geplant</span>
-                    <h3>Frühbucher</h3>
-                    <p class="price">1,99&nbsp;€<small>/Monat</small></p>
-                    <p class="price-note">dauerhaft – für Beta-Tester und die ersten 100 Kunden</p>
-                    <ul class="checks">
-                        <li>Alle Funktionen</li>
-                        <li>Preis bleibt für immer</li>
-                        <li>Monatlich kündbar</li>
-                    </ul>
+                    <h3>Lokal</h3>
+                    <p class="price-note">Finanzwabe läuft auf deinem Rechner. Deine Daten liegen in einem Ordner bei dir, nicht auf einem Server von mir.</p>
                 </div>
                 <div class="price-card">
-                    <span class="price-label">Geplant</span>
-                    <h3>Plus</h3>
-                    <p class="price">2,99&nbsp;€<small>/Monat</small></p>
-                    <p class="price-note">oder 24,99&nbsp;€ im Jahr – 30 Tage kostenlos testen</p>
-                    <ul class="checks">
-                        <li>Alle Funktionen</li>
-                        <li>Jahrestarif spart 30&nbsp;%</li>
-                        <li>Monatlich kündbar</li>
-                    </ul>
+                    <h3>Offen</h3>
+                    <p class="price-note">Der Quellcode ist einsehbar. Private Nutzung ist erlaubt, kommerzielle Nutzung durch Dritte nicht.</p>
                 </div>
             </div>
         </div>
@@ -199,11 +177,32 @@
         <div class="container faq">
             <h2 class="section-title">Häufige Fragen</h2>
             <details><summary>Brauche ich meine Bank-Zugangsdaten?</summary><p>Nein. Finanzwabe verbindet sich mit keiner Bank. Du trägst Buchungen selbst ein oder importierst sie aus Excel. Deine Bank-Zugangsdaten bleiben da, wo sie hingehören: bei dir.</p></details>
-            <details><summary>Gibt es Finanzwabe für Android und iPhone?</summary><p>Ja. Finanzwabe läuft im Browser und lässt sich auf Android (Chrome: „App installieren“) und iPhone (Safari: „Zum Home-Bildschirm“) wie eine normale App installieren.</p></details>
+            <details><summary>Gibt es Finanzwabe für Android und iPhone?</summary><p>Aktuell als Windows-Programm. Auf dem Smartphone nur, wenn du die Entwickler-Variante im eigenen WLAN startest (Anleitung in der README auf GitHub).</p></details>
             <details><summary>Was passiert mit meinen Daten?</summary><p>Sie werden nur für die App verwendet, nicht verkauft und nicht für Werbung genutzt. Du kannst jederzeit alles als CSV exportieren oder dein Konto mit allen Daten sofort löschen.</p></details>
             <details><summary>Kann ich meine Excel-Tabelle übernehmen?</summary><p>Ja. Tabellen mit Datum, Betrag und Beschreibung pro Zeile werden erkannt, die Kategorien automatisch zugeordnet. Vor dem Import siehst du eine Vorschau.</p></details>
-            <details><summary>Was kostet Finanzwabe nach der Beta?</summary><p>Geplant sind 2,99&nbsp;€ im Monat oder 24,99&nbsp;€ im Jahr. Beta-Tester bekommen dauerhaft den Frühbucher-Preis von 1,99&nbsp;€. Ein Tarif gilt nur, wenn du ihn ausdrücklich buchst.</p></details>
+            <details><summary>Was kostet Finanzwabe?</summary><p>Nichts. Du kannst Finanzwabe privat so lange nutzen, wie du willst. Kosten entstehen nur, wenn du Wabi einschaltest: Dann rechnet Anthropic die Anfragen über deinen eigenen Schlüssel ab. Dabei gehen die für eine Frage nötigen Zahlen an Anthropic. Ohne Schlüssel bleibt alles auf deinem Rechner.</p></details>
+            <details><summary>Darf ich Finanzwabe weitergeben oder geschäftlich nutzen?</summary><p>Ausprobieren, privat nutzen und den Code ansehen: ja. Damit Geld verdienen, zum Beispiel verkaufen oder als Dienst anbieten: nein.</p></details>
             <details><summary>Ist Finanzwabe eine Finanzberatung?</summary><p>Nein. Finanzwabe ist ein Werkzeug für deinen Überblick. Alle Berechnungen beruhen auf deinen Eingaben; maßgeblich sind die Unterlagen deiner Bank.</p></details>
+        </div>
+    </section>
+
+    <section class="section" id="feedback">
+        <div class="container feedback">
+            <h2 class="section-title">Ausprobiert? Dann brauche ich dein Feedback.</h2>
+            <p class="section-sub">Finanzwabe wird besser durch das, was Tester mir sagen. Nimm dir nach dem Ausprobieren fünf Minuten und schreib mir:</p>
+            <ol class="feedback-list">
+                <li>Was hat auf Anhieb geklappt, und wo bist du hängengeblieben?</li>
+                <li>Was hast du vermisst, und was war überflüssig?</li>
+                <li>Würdest du Finanzwabe weiterempfehlen? Warum (nicht)?</li>
+            </ol>
+            <p class="section-sub">Eine kurze Mail reicht. <strong>Bitte schick keine echten Kontodaten und keine Screenshots mit deinen Zahlen</strong>, erfundene Beispiele genügen.</p>
+            <p class="feedback-mail">
+                <a class="mail-address" href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a>
+                <button class="btn btn-ghost btn-small copy-mail" type="button">Adresse kopieren</button>
+            </p>
+            <div class="hero-cta">
+                <a class="btn btn-ghost" href="https://github.com/Soerenneumann1985/finanzwabe/issues/new">Fehler auf GitHub melden</a>
+            </div>
         </div>
     </section>
 
@@ -222,8 +221,8 @@
             </p>
             <p class="cta-contact">
                 Fragen oder Feedback? Schreib mir an
-                <a href="mailto:soerenneumann85@gmx.de" id="mailAddress">soerenneumann85@gmx.de</a>
-                <button class="btn btn-ghost-light btn-small" type="button" id="copyMail">Adresse kopieren</button>
+                <a class="mail-address" href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a>
+                <button class="btn btn-ghost-light btn-small copy-mail" type="button">Adresse kopieren</button>
             </p>
         </div>
     </section>

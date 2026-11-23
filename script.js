@@ -89,12 +89,10 @@ const translations = {
     'projects.comingSoon': { de: 'Demnächst auf GitHub', en: 'Coming soon on GitHub' },
 
     'contact.heading': { de: 'Schreib mir eine E-Mail', en: 'Send me an email' },
-    'contact.name': { de: 'Name', en: 'Name' },
-    'contact.namePlaceholder': { de: 'Dein Name', en: 'Your name' },
-    'contact.email': { de: 'E-Mail', en: 'Email' },
-    'contact.emailPlaceholder': { de: 'deine@email.de', en: 'you@email.com' },
-    'contact.submit': { de: 'Absenden', en: 'Send' },
-    'contact.altHtml': { de: 'oder direkt an <a href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a>', en: 'or directly to <a href="mailto:soerenneumann85@gmx.de">soerenneumann85@gmx.de</a>' },
+    'contact.copy': { de: 'Adresse kopieren', en: 'Copy address' },
+    'contact.copied': { de: 'Kopiert ✓', en: 'Copied ✓' },
+    'contact.selected': { de: 'Markiert – Strg+C', en: 'Selected – press Ctrl+C' },
+    'contact.hint': { de: 'Kein Mailprogramm eingerichtet? Dann kopiere die Adresse und schreib mir aus deinem Mail-Konto.', en: 'No mail program set up? Copy the address and write to me from your own mail account.' },
 
     'personal.divider': { de: 'Persönliches', en: 'Personal' },
 
@@ -112,18 +110,18 @@ const translations = {
     'footer.imprint': { de: 'Impressum', en: 'Legal notice' },
     'footer.privacy': { de: 'Datenschutz', en: 'Privacy' },
 
-    'fw.badge': { de: 'Neu · Beta kostenlos', en: 'New · free beta' },
+    'fw.badge': { de: 'Neu · kostenlos', en: 'New · free' },
     'fw.slogan': { de: 'Wabe für Wabe schuldenfrei.', en: 'Debt-free, cell by cell.' },
     'fw.text': {
-        de: 'Meine eigene Finanz-App: Sie zeigt, wofür das Geld draufgeht, wie viel man insgesamt besitzt – und an welchem Tag der letzte Kredit abbezahlt ist. Ohne Bank-Login, ohne Tracking, im Browser und als App auf dem Handy.',
-        en: 'My own personal finance app: it shows where your money goes, what you are worth in total – and the day your last loan will be paid off. No bank login, no tracking, in the browser and as an app on your phone.'
+        de: 'Meine eigene Finanz-App: Sie zeigt, wofür das Geld draufgeht, wie viel man insgesamt besitzt – und an welchem Tag der letzte Kredit abbezahlt ist. Ohne Bank-Login, ohne Tracking. Läuft kostenlos auf deinem Windows-Rechner, deine Daten bleiben dort.',
+        en: 'My own personal finance app: it shows where your money goes, what you are worth in total – and the day your last loan will be paid off. No bank login, no tracking. Runs for free on your Windows PC, and your data stays there.'
     },
     'fw.cta': { de: 'Finanzwabe entdecken →', en: 'Discover Finanzwabe →' },
-    'fw.ctaBeta': { de: 'Beta-Tester werden', en: 'Become a beta tester' },
-    'projects.fwStatus': { de: 'Beta', en: 'Beta' },
+    'fw.ctaBeta': { de: 'Herunterladen', en: 'Download' },
+    'projects.fwStatus': { de: 'Zum Testen', en: 'Open for testing' },
     'projects.fwDesc': {
-        de: 'Vollständige Finanz-App als Progressive Web App: Buchungen, Budgets, Nettovermögen und Kredit-Prognose „schuldenfrei am …“. Mit Login, Excel-Import, eigenen Diagrammen und über 150 automatischen Tests.',
-        en: 'Full personal finance app as a Progressive Web App: transactions, budgets, net worth and a "debt-free by …" loan forecast. With login, Excel import, custom charts and more than 150 automated tests.'
+        de: 'Vollständige Finanz-App für den eigenen Rechner: Buchungen, Budgets, Nettovermögen und Kredit-Prognose „schuldenfrei am …“. Mit Excel- und Bank-Import, eigenen Diagrammen, KI-Assistent Wabi und rund 290 automatischen Tests.',
+        en: 'Full personal finance app for your own PC: transactions, budgets, net worth and a "debt-free by …" loan forecast. With Excel and bank import, custom charts, the AI assistant Wabi and about 290 automated tests.'
     },
     'projects.fwCta': { de: 'Zur Produktseite →', en: 'View product page →' }
 };
@@ -197,6 +195,27 @@ function applyLanguage(lang) {
         });
     }
 })();
+
+// ==================== E-Mail-Adresse kopieren ====================
+// Ohne eingerichtetes Mailprogramm tut ein mailto-Link nichts. Darum steht die Adresse sichtbar da.
+document.querySelectorAll('.copy-mail').forEach(copyButton => {
+    const mailAddress = copyButton.parentElement.querySelector('.mail-address');
+    if (!mailAddress) return;
+    const say = key => translations[key][document.documentElement.lang === 'en' ? 'en' : 'de'];
+    copyButton.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(mailAddress.textContent.trim());
+            copyButton.textContent = say('contact.copied');
+        } catch (error) {
+            // Kein Zugriff auf die Zwischenablage: Adresse markieren, dann geht Strg+C.
+            const range = document.createRange();
+            range.selectNodeContents(mailAddress);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            copyButton.textContent = say('contact.selected');
+        }
+    });
+});
 
 // ==================== Mobile Navigation ====================
 const navToggle = document.getElementById('navToggle');

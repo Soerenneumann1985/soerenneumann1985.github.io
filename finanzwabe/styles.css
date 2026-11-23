@@ -296,6 +296,15 @@ section, header { scroll-margin-top: calc(var(--nav-height) + 12px); }
 .cta-band .cta-contact a, .cta-band .cta-note a { color: #fff; text-decoration: underline; }
 .cta-band .cta-contact .btn { margin-left: 8px; cursor: pointer; }
 
+/* ---------- Feedback ---------- */
+.feedback { text-align: center; }
+.feedback .section-sub { max-width: 40em; margin-left: auto; margin-right: auto; }
+.feedback-list { display: inline-block; text-align: left; margin: 18px auto 22px; padding-left: 1.4em; line-height: 1.7; }
+.feedback-mail { margin-top: 18px; font-size: 1.1rem; }
+.feedback-mail a { color: #fff; font-weight: 700; text-decoration: underline; }
+.feedback-mail .btn { margin-left: 8px; cursor: pointer; }
+.feedback .hero-cta { justify-content: center; }
+
 /* ---------- Footer ---------- */
 .footer { padding: 36px 0 44px; color: var(--muted); font-size: 0.9rem; }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
