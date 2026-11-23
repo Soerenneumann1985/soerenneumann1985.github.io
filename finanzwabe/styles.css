@@ -291,6 +291,10 @@ section, header { scroll-margin-top: calc(var(--nav-height) + 12px); }
 .cta-band h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
 .cta-band p { max-width: 36em; margin: 10px auto 0; color: #eef2ff; }
 .cta-band .hero-cta { justify-content: center; }
+.cta-band .cta-note { margin-top: 22px; font-size: 0.95rem; }
+.cta-band .cta-contact { margin-top: 26px; }
+.cta-band .cta-contact a, .cta-band .cta-note a { color: #fff; text-decoration: underline; }
+.cta-band .cta-contact .btn { margin-left: 8px; cursor: pointer; }
 
 /* ---------- Footer ---------- */
 .footer { padding: 36px 0 44px; color: var(--muted); font-size: 0.9rem; }

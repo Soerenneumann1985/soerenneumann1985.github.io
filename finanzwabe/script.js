@@ -13,6 +13,26 @@ document.querySelectorAll("[data-app-link]").forEach((link) => {
     }
 });
 
+// ==================== E-Mail-Adresse kopieren ====================
+// Ohne eingerichtetes Mailprogramm tut ein mailto-Link nichts. Darum steht die Adresse sichtbar da.
+const copyButton = document.getElementById("copyMail");
+const mailAddress = document.getElementById("mailAddress");
+if (copyButton && mailAddress) {
+    copyButton.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(mailAddress.textContent.trim());
+            copyButton.textContent = "Kopiert ✓";
+        } catch (error) {
+            // Kein Zugriff auf die Zwischenablage: Adresse markieren, dann geht Strg+C.
+            const range = document.createRange();
+            range.selectNodeContents(mailAddress);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            copyButton.textContent = "Markiert – Strg+C";
+        }
+    });
+}
+
 // ==================== Mobile Navigation ====================
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
